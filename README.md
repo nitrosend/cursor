@@ -8,25 +8,26 @@ Powered by 20 MCP tools and a 65K-word email marketing knowledge base (908 sourc
 
 ### One-click install
 
-[Install Nitrosend in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=nitrosend&config=eyJ1cmwiOiJodHRwczovL2FwaS5uaXRyb3NlbmQuY29tL21jcCJ9)
+[Install Nitrosend in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=nitrosend&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIm1jcC1yZW1vdGUiLCJodHRwczovL2FwaS5uaXRyb3NlbmQuY29tL21jcCJdfQ==)
 
-Cursor will open a browser window to sign in to Nitrosend and authorise the connection. No API key needed.
+On first use, your browser will open for Nitrosend sign-in. No API key needed.
 
 ### Manual install
 
-Add to `~/.cursor/mcp.json`:
+Add to `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (project):
 
 ```json
 {
   "mcpServers": {
     "nitrosend": {
-      "url": "https://api.nitrosend.com/mcp"
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://api.nitrosend.com/mcp"]
     }
   }
 }
 ```
 
-Restart Cursor. On first use, Cursor will prompt you to authenticate via OAuth.
+Restart Cursor. On first tool call, your browser opens for Nitrosend sign-in.
 
 ### Verify connection
 

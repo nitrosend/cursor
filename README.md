@@ -6,51 +6,35 @@ Powered by 20 MCP tools and a 65K-word email marketing knowledge base (908 sourc
 
 ## Quick Start
 
-### 1. Get your API key
+### One-click install
 
-Get your API key at [nitrosend.com/settings/api-keys](https://nitrosend.com/settings/api-keys). It starts with `nskey_live_`.
+[Install Nitrosend in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=nitrosend&config=eyJ1cmwiOiJodHRwczovL2FwaS5uaXRyb3NlbmQuY29tL21jcCJ9)
 
-### 2. Set your API key
+Cursor will open a browser window to sign in to Nitrosend and authorise the connection. No API key needed.
 
-Add to your shell profile (`~/.zshrc` or `~/.bashrc`):
+### Manual install
 
-```bash
-export NITROSEND_API_KEY=nskey_live_your_key_here
-```
-
-### 3. Install the MCP server
-
-**One-click install:**
-
-[Install Nitrosend MCP in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=nitrosend&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkBuaXRyb3NlbmQvbWNwQGxhdGVzdCJdLCJlbnYiOnsiTklUUk9TRU5EX0FQSV9LRVkiOiIke2VudjpOSVRST1NFTkRfQVBJX0tFWX0ifX0=)
-
-**Or manually** — add to your `~/.cursor/mcp.json`:
+Add to `~/.cursor/mcp.json`:
 
 ```json
 {
   "mcpServers": {
     "nitrosend": {
-      "command": "npx",
-      "args": ["-y", "@nitrosend/mcp@latest"],
-      "env": {
-        "NITROSEND_API_KEY": "${env:NITROSEND_API_KEY}"
-      }
+      "url": "https://api.nitrosend.com/mcp"
     }
   }
 }
 ```
 
-Restart Cursor after saving.
+Restart Cursor. On first use, Cursor will prompt you to authenticate via OAuth.
 
-### 4. Verify connection
+### Verify connection
 
 Open Cursor Chat and ask:
 
 ```
 Check my Nitrosend account status
 ```
-
-If connected, you'll see your account info and any onboarding steps.
 
 ## What You Can Do
 
@@ -124,8 +108,7 @@ How are my flows performing this month? Compare against benchmarks.
 ## Requirements
 
 - Cursor with MCP support
-- Node.js 18+
-- Nitrosend API key (`NITROSEND_API_KEY` environment variable)
+- A Nitrosend account ([nitrosend.com](https://nitrosend.com))
 
 ## Links
 

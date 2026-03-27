@@ -1,11 +1,7 @@
 {
   "mcpServers": {
     "nitrosend": {
-      "command": "npx",
-      "args": ["-y", "@nitrosend/mcp@latest"],
-      "env": {
-        "NITROSEND_API_KEY": "${env:NITROSEND_API_KEY}"
-      }
+      "url": "https://api.nitrosend.com/mcp"
     }
   }
 }

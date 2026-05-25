@@ -81,7 +81,7 @@ Account-wide and per-campaign insights with trends and industry benchmarks.
 How are my flows performing this month? Compare against benchmarks.
 ```
 
-## MCP Tools (20)
+## MCP Tools (21)
 
 | Tool | Description |
 |------|-------------|
@@ -89,12 +89,13 @@ How are my flows performing this month? Compare against benchmarks.
 | `nitro_set_brand` | Brand identity from URL or manual fields |
 | `nitro_manage_domains` | Add and verify sending domains |
 | `nitro_configure_account` | Sender defaults and test recipients |
-| `nitro_compose_email` | Create, update, or clone email templates |
+| `nitro_ingest_image` | Import a local or chat image for email sections |
+| `nitro_manage_template` | Create, update, or clone email templates |
 | `nitro_compose_campaign` | Create email or SMS campaigns |
 | `nitro_compose_flow` | Build automation flows |
 | `nitro_control_delivery` | Approve, schedule, pause, or cancel delivery |
-| `nitro_review_and_test` | Review email content and send test emails |
-| `nitro_send_message` | Send transactional email or SMS immediately |
+| `nitro_review_delivery` | Review email/SMS content and delivery readiness |
+| `nitro_send_test_message` | Send test email or SMS messages |
 | `nitro_manage_audience` | Create contacts, manage lists, tags, events |
 | `nitro_import_contacts` | Bulk import contact records |
 | `nitro_define_segment` | Build segments with filters and preview |

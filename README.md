@@ -2,7 +2,7 @@
 
 AI-native email marketing inside Cursor. Compose emails, build automation flows, manage contacts, and send campaigns — all from your editor.
 
-Powered by 20 MCP tools and a 65K-word email marketing knowledge base (908 sources, 4,798 insights across 19 industry playbooks).
+Powered by 23 MCP tools and a 65K-word email marketing knowledge base (908 sources, 4,798 insights across 19 industry playbooks).
 
 ## Quick Start
 
@@ -81,11 +81,12 @@ Account-wide and per-campaign insights with trends and industry benchmarks.
 How are my flows performing this month? Compare against benchmarks.
 ```
 
-## MCP Tools (21)
+## MCP Tools (23)
 
 | Tool | Description |
 |------|-------------|
 | `nitro_get_status` | Account health and onboarding state |
+| `nitro_select_brand` | Switch the current brand for OAuth MCP sessions |
 | `nitro_set_brand` | Brand identity from URL or manual fields |
 | `nitro_manage_domains` | Add and verify sending domains |
 | `nitro_configure_account` | Sender defaults and test recipients |
@@ -96,6 +97,7 @@ How are my flows performing this month? Compare against benchmarks.
 | `nitro_control_delivery` | Approve, schedule, pause, or cancel delivery |
 | `nitro_review_delivery` | Review email/SMS content and delivery readiness |
 | `nitro_send_test_message` | Send test email or SMS messages |
+| `nitro_send_message` | Send immediate single-recipient transactional email or SMS |
 | `nitro_manage_audience` | Create contacts, manage lists, tags, events |
 | `nitro_import_contacts` | Bulk import contact records |
 | `nitro_define_segment` | Build segments with filters and preview |

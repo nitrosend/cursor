@@ -86,8 +86,8 @@ How are my flows performing this month? Compare against benchmarks.
 | Tool | Description |
 |------|-------------|
 | `nitro_get_status` | Account health and onboarding state |
-| `nitro_select_brand` | Switch the current brand for OAuth MCP sessions |
-| `nitro_set_brand` | Brand identity from URL or manual fields |
+| `nitro_select_client_account` | Switch the current client account for OAuth MCP sessions |
+| `nitro_set_brand_kit` | Brand Kit identity from URL or manual fields |
 | `nitro_manage_domains` | Add and verify sending domains |
 | `nitro_configure_account` | Sender defaults and test recipients |
 | `nitro_ingest_image` | Import a local or chat image for email sections |

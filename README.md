@@ -1,20 +1,37 @@
 # Nitrosend for Cursor
 
-AI-native email marketing inside Cursor. Compose emails, build automation flows, manage contacts, and send campaigns — all from your editor.
+AI-native email inside Cursor. Compose emails, build automation flows, manage contacts, and send campaigns — all from your editor.
 
-Powered by 23 MCP tools and a 65K-word email marketing knowledge base (908 sources, 4,798 insights across 19 industry playbooks).
+Powered by 28 MCP tools and a 68K-word email marketing knowledge base (908 sources, 4,798 insights across 19 industry playbooks).
 
 ## Quick Start
 
 ### One-click install
 
-[Install Nitrosend in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=nitrosend&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIm1jcC1yZW1vdGUiLCJodHRwczovL2FwaS5uaXRyb3NlbmQuY29tL21jcCJdfQ==)
+[Install Nitrosend in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=nitrosend&config=eyJ1cmwiOiJodHRwczovL2FwaS5uaXRyb3NlbmQuY29tL21jcCJ9)
 
 On first use, your browser will open for Nitrosend sign-in. No API key needed.
 
 ### Manual install
 
 Add to `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (project):
+
+```json
+{
+  "mcpServers": {
+    "nitrosend": {
+      "url": "https://api.nitrosend.com/mcp"
+    }
+  }
+}
+```
+
+Restart Cursor. On first tool call, your browser opens for Nitrosend sign-in (OAuth).
+
+<details>
+<summary>Older Cursor versions without remote MCP support</summary>
+
+If your Cursor build cannot connect to a remote MCP server directly, use the stdio bridge instead:
 
 ```json
 {
@@ -27,7 +44,7 @@ Add to `~/.cursor/mcp.json` (global) or `.cursor/mcp.json` (project):
 }
 ```
 
-Restart Cursor. On first tool call, your browser opens for Nitrosend sign-in.
+</details>
 
 ### Verify connection
 
@@ -74,6 +91,13 @@ Import contacts, manage lists, define segments, bulk tag.
 Import these 50 contacts and add them to the "Beta users" list
 ```
 
+### Agent inboxes
+Give your agent its own address, then read and reply to threads without leaving the editor.
+
+```
+Check my Nitrosend inbox and draft replies to anything that needs attention
+```
+
 ### Analytics
 Account-wide and per-campaign insights with trends and industry benchmarks.
 
@@ -81,31 +105,58 @@ Account-wide and per-campaign insights with trends and industry benchmarks.
 How are my flows performing this month? Compare against benchmarks.
 ```
 
-## MCP Tools (23)
+## MCP Tools (28)
+
+### Account and brand
 
 | Tool | Description |
 |------|-------------|
-| `nitro_get_status` | Account health and onboarding state |
+| `nitro_get_status` | Account health, brand context, and onboarding state |
+| `nitro_select_account` | Switch the OAuth MCP connection to another account |
 | `nitro_select_brand` | Switch the current brand for OAuth MCP sessions |
-| `nitro_set_brand_kit` | Brand Kit identity from URL or manual fields |
+| `nitro_set_brand_kit` | Brand Kit identity from a URL or manual fields |
 | `nitro_manage_domains` | Add and verify sending domains |
 | `nitro_configure_account` | Sender defaults and test recipients |
-| `nitro_ingest_image` | Import a local or chat image for email sections |
+| `nitro_configure_providers` | BYO sending provider credentials and status (SES, Mailgun, Postmark, Resend, SendGrid) |
+| `nitro_manage_billing` | Plan status and upgrades |
+
+### Content and delivery
+
+| Tool | Description |
+|------|-------------|
 | `nitro_manage_template` | Create, update, or clone email templates |
 | `nitro_compose_campaign` | Create email or SMS campaigns |
 | `nitro_compose_flow` | Build automation flows |
+| `nitro_ingest` | Validate and store an image in the brand library, returning a durable email URL |
+| `nitro_review_delivery` | Review content and delivery readiness |
 | `nitro_control_delivery` | Approve, schedule, pause, or cancel delivery |
-| `nitro_review_delivery` | Review email/SMS content and delivery readiness |
 | `nitro_send_test_message` | Send test email or SMS messages |
-| `nitro_send_message` | Send immediate single-recipient transactional email or SMS |
-| `nitro_manage_audience` | Create contacts, manage lists, tags, events |
+| `nitro_send_message` | Immediate single-recipient transactional email or SMS |
+
+### Contacts and segmentation
+
+| Tool | Description |
+|------|-------------|
+| `nitro_manage_audience` | Create contacts, manage lists, tags, and events |
 | `nitro_import_contacts` | Bulk import contact records |
-| `nitro_define_segment` | Build segments with filters and preview |
+| `nitro_define_segment` | Build segments with filters and preview counts |
 | `nitro_search_contacts` | Find contacts by email, name, or phone |
-| `nitro_query` | Query campaigns, flows, templates, segments |
-| `nitro_get_insights` | Analytics with trends and benchmarks |
-| `nitro_manage_billing` | Plan status and upgrades |
-| `nitro_configure_providers` | BYO email provider (Mailgun, SES) |
+
+### Inbox and outreach
+
+| Tool | Description |
+|------|-------------|
+| `nitro_inbox` | Read the agent queue or mailbox |
+| `nitro_inbox_action` | Reply to, handle, or escalate an inbox item |
+| `nitro_manage_outreach` | Discover named people for outreach, gated by an explicit spend cap |
+
+### Insight and support
+
+| Tool | Description |
+|------|-------------|
+| `nitro_query` | Query campaigns, flows, templates, and segments |
+| `nitro_get_insights` | Analytics with trends and industry benchmarks |
+| `nitro_search_docs` | Search Nitrosend guides and API/MCP/CLI references |
 | `nitro_set_memory` | Persistent AI memory across sessions |
 | `nitro_request_support` | Submit a support request |
 
@@ -114,13 +165,24 @@ How are my flows performing this month? Compare against benchmarks.
 - Cursor with MCP support
 - A Nitrosend account ([nitrosend.com](https://nitrosend.com))
 
+This plugin is free. Nitrosend has a free tier; paid plans and usage are a separate, optional subscription to the Nitrosend service.
+
+## Support
+
+- Email: [contact@nitrosend.com](mailto:contact@nitrosend.com)
+- [Documentation](https://docs.nitrosend.com)
+- Security or vulnerability reports: [SECURITY.md](SECURITY.md)
+
 ## Links
 
 - [Nitrosend](https://nitrosend.com)
-- [API docs](https://api.nitrosend.com)
+- [Documentation](https://docs.nitrosend.com)
+- [Privacy policy](https://nitrosend.com/privacy)
+- [Terms](https://nitrosend.com/terms)
+- [Security](https://nitrosend.com/security)
 - [MCP package (@nitrosend/mcp)](https://www.npmjs.com/package/@nitrosend/mcp)
 - [Email Marketing Bible](https://emailmarketingskill.com)
 
 ## License
 
-MIT
+[MIT](LICENSE)

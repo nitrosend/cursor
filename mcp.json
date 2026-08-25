@@ -1,8 +1,7 @@
 {
   "mcpServers": {
     "nitrosend": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://api.nitrosend.com/mcp"]
+      "url": "https://api.nitrosend.com/mcp"
     }
   }
 }

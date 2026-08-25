@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
 
+permissions: {}
+
 jobs:
   notify:
     runs-on: ubuntu-latest
@@ -34,4 +36,4 @@ jobs:
           text="${header}"$'\n'"${commits}"
 
           payload=$(jq -nc --arg t "$text" '{text: $t}')
-          curl -sS -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_WEBHOOK_URL"
+          curl -sS --fail-with-body -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_WEBHOOK_URL"

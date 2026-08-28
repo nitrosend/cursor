@@ -160,9 +160,13 @@ How are my flows performing this month? Compare against benchmarks.
 | `nitro_set_memory` | Persistent AI memory across sessions |
 | `nitro_request_support` | Submit a support request |
 
+## Agents
+
+Connecting from an agent surface — Cursor Chat, Cursor web, or a cloud agent like Grok Bot? Read the Nitrosend agent onboarding guide first: [nitrosend.com/SKILL.md](https://nitrosend.com/SKILL.md). The short version: call `nitro_get_status` before anything else, trust its snapshot over assumptions, and never approve or trigger a live send without explicit human confirmation.
+
 ## Requirements
 
-- Cursor with MCP support
+- Cursor with MCP support — desktop, web, and cloud agents (including Grok Bot) are supported: the plugin connects to a remote MCP URL over OAuth, so no local process is required
 - A Nitrosend account ([nitrosend.com](https://nitrosend.com))
 
 This plugin is free. Nitrosend has a free tier; paid plans and usage are a separate, optional subscription to the Nitrosend service.
@@ -177,6 +181,7 @@ This plugin is free. Nitrosend has a free tier; paid plans and usage are a separ
 
 - [Nitrosend](https://nitrosend.com)
 - [Documentation](https://docs.nitrosend.com)
+- [Agent onboarding guide (SKILL.md)](https://nitrosend.com/SKILL.md)
 - [Privacy policy](https://nitrosend.com/privacy)
 - [Terms](https://nitrosend.com/terms)
 - [Security](https://nitrosend.com/security)

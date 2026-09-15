@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Added a Grok Build manifest (`.grok-plugin/plugin.json`) and a standard
+  `.mcp.json` so the same repo installs from the xAI plugin marketplace.
+  No change to the Cursor plugin.
+
 ## 1.1.0
 
 - Added an MIT `LICENSE` file (the manifest already declared MIT).

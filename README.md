@@ -54,6 +54,26 @@ Open Cursor Chat and ask:
 Check my Nitrosend account status
 ```
 
+## Grok Build
+
+The same plugin installs in Grok Build (and Grok Bot) from the [xAI plugin marketplace](https://github.com/xai-org/plugin-marketplace). This repo carries a `.grok-plugin/plugin.json` manifest and a `.mcp.json` pointing at the hosted Nitrosend MCP server. Nothing runs locally.
+
+Once the listing is live, open `/plugins` in Grok Build, search for **Nitrosend** and install it. To try a pinned revision before then:
+
+```bash
+grok plugin install nitrosend/cursor@<full-commit-sha> --trust
+```
+
+Start a new Grok session after installing. The first `nitro_*` tool call opens your browser for Nitrosend sign-in (OAuth). Use `/mcps` to inspect the connection.
+
+## Network and permissions
+
+- The plugin calls one endpoint: `https://api.nitrosend.com/mcp`, the hosted Nitrosend MCP server, over HTTPS.
+- Sign-in is OAuth in your browser. The endpoint publishes protected-resource metadata at `https://api.nitrosend.com/.well-known/oauth-protected-resource/mcp`. No API key, environment variable or local helper is required. The plugin does not read local files, `.env` files, tokens or secrets.
+- Once signed in, the agent can read your Nitrosend account data and perform explicit write actions such as creating templates, importing contacts and approving sends. Review recipients and content before approving a live send. See the [agent onboarding guide](https://nitrosend.com/SKILL.md).
+- This repository ships no executable code: two manifests (`.cursor-plugin/plugin.json`, `.grok-plugin/plugin.json`), MCP server configs (`mcp.json`, `.mcp.json`), docs and assets. No hooks, no scripts, no postinstall step.
+- Data is handled under the Nitrosend [privacy policy](https://nitrosend.com/privacy) and [terms](https://nitrosend.com/terms).
+
 ## What You Can Do
 
 ### Email composition

@@ -6,11 +6,23 @@ Powered by 28 MCP tools and a 68K-word email marketing knowledge base (908 sourc
 
 ## Quick Start
 
-### One-click install
+### Install from the Cursor Marketplace (recommended)
+
+Nitrosend is an official plugin on the [Cursor Marketplace](https://cursor.com/marketplace/nitrosend). In Cursor's Agent chat, run:
+
+```
+/add-plugin nitrosend
+```
+
+Or click **Add to Cursor** on the Marketplace listing, or open **Customize** in the sidebar, find Nitrosend and choose **Install** (project or user scope).
+
+On first use, your browser opens for Nitrosend sign-in. No API key needed.
+
+### One-click MCP install
+
+Adds the bundled MCP server on its own, without the plugin wrapper:
 
 [Install Nitrosend in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=nitrosend&config=eyJ1cmwiOiJodHRwczovL2FwaS5uaXRyb3NlbmQuY29tL21jcCJ9)
-
-On first use, your browser will open for Nitrosend sign-in. No API key needed.
 
 ### Manual install
 

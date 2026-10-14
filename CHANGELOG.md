@@ -6,6 +6,11 @@
   `.mcp.json` so the same repo installs from the xAI plugin marketplace.
   No change to the Cursor plugin.
 
+## 1.1.1
+
+- Clarify the Cursor listing around the hosted MCP connection and current email workflows.
+- Use the current Nitrosend mark in the marketplace card.
+
 ## 1.1.0
 
 - Added an MIT `LICENSE` file (the manifest already declared MIT).

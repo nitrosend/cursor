@@ -1,13 +1,13 @@
 {
   "name": "nitrosend",
   "displayName": "Nitrosend",
-  "description": "AI-native email. Compose newsletters, build automation flows, manage contacts, run agent inboxes, and send campaigns — all from Cursor. Powered by 28 MCP tools backed by a 68K-word email marketing knowledge base.",
-  "version": "1.1.0",
+  "description": "Compose campaigns and flows, manage contacts, send transactional email and inspect results from Cursor through Nitrosend's remote MCP. OAuth sign-in and a free plan.",
+  "version": "1.1.1",
   "author": {
     "name": "Nitrosend",
     "email": "contact@nitrosend.com"
   },
-  "homepage": "https://nitrosend.com",
+  "homepage": "https://nitrosend.com/integrations/cursor",
   "repository": "https://github.com/nitrosend/cursor",
   "license": "MIT",
   "keywords": [

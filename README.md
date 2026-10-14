@@ -1,8 +1,6 @@
 # Nitrosend for Cursor
 
-AI-native email inside Cursor. Compose emails, build automation flows, manage contacts, and send campaigns — all from your editor.
-
-Powered by 28 MCP tools and a 68K-word email marketing knowledge base (908 sources, 4,798 insights across 19 industry playbooks).
+AI-native email inside Cursor. Compose campaigns and flows, manage contacts, send transactional messages, and inspect results from your editor through Nitrosend's remote MCP server. Sign in with OAuth; a free plan is available.
 
 ## Quick Start
 

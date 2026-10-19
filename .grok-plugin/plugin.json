@@ -1,7 +1,7 @@
 {
   "name": "nitrosend",
-  "version": "1.1.0",
-  "description": "AI-native email for Grok Build. Compose newsletters, build automation flows, manage contacts and segments, run agent inboxes, and send email and SMS campaigns through the hosted Nitrosend MCP server (28 tools, OAuth sign-in, no local process).",
+  "version": "1.1.1",
+  "description": "AI-native email for Grok Build. Compose campaigns and flows, manage contacts and segments, and inspect results through Nitrosend's hosted MCP server. Sign in to your own account with OAuth; no local process is required.",
   "author": {
     "name": "Nitrosend",
     "email": "contact@nitrosend.com",

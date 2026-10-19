@@ -5,6 +5,7 @@
 - Added a Grok Build manifest (`.grok-plugin/plugin.json`) and a standard
   `.mcp.json` so the same repo installs from the xAI plugin marketplace.
   No change to the Cursor plugin.
+- Removed a fixed tool count and clarified the hosted OAuth connection in the Grok Build plugin manifest.
 
 ## 1.1.1
 

@@ -1,6 +1,11 @@
 # Changelog
 
-## Unreleased
+## 1.2.0
+
+- Ship eight agent skills (`skills/`): setup, compose-email, send-campaign, build-flow, send-transactional, import-contacts, analytics and an email marketing reference. Cursor, Grok Build and Grok Bot load them with the plugin.
+- Use the 858x858 v2 Nitrosend logo.
+- Bump the Cursor and Grok Build manifests to 1.2.0.
+- Remove em dashes from the README.
 
 - Added a Grok Build manifest (`.grok-plugin/plugin.json`) and a standard
   `.mcp.json` so the same repo installs from the xAI plugin marketplace.

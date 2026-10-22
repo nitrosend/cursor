@@ -139,7 +139,7 @@ Account-wide and per-campaign insights with trends and industry benchmarks.
 How are my flows performing this month? Compare against benchmarks.
 ```
 
-## MCP Tools (29)
+## MCP Tools (28)
 
 ### Account and brand
 
@@ -183,7 +183,6 @@ How are my flows performing this month? Compare against benchmarks.
 | `nitro_inbox` | Read the agent queue or mailbox |
 | `nitro_inbox_action` | Reply to, handle, or escalate an inbox item |
 | `nitro_manage_outreach` | Discover named people for outreach, gated by an explicit spend cap |
-| `nitro_manage_people` | Enrich or verify existing contacts and leads, quoted first and gated by an explicit spend cap |
 
 ### Insight and support
 
@@ -201,7 +200,7 @@ Connecting from an agent surface (Cursor Chat, Cursor web, or a cloud agent like
 
 ## Requirements
 
-- Cursor with MCP support: desktop, web, and cloud agents (including Grok Bot) are supported: the plugin connects to a remote MCP URL over OAuth, so no local process is required
+- Cursor with MCP support. Desktop, web, and cloud agents (including Grok Bot) are supported, because the plugin connects to a remote MCP URL over OAuth, so no local process is required
 - A Nitrosend account ([nitrosend.com](https://nitrosend.com))
 
 This plugin is free. Nitrosend has a free tier; paid plans and usage are a separate, optional subscription to the Nitrosend service.

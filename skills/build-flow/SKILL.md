@@ -59,7 +59,7 @@ against account performance rather than asserting universal timings.
 
 Use `nitro_compose_flow` with:
 - `name`: Descriptive flow name
-- `trigger`: `{ event: "trigger_event_name" }` — optionally add `segment_id` or `contact_list_id`
+- `trigger`: `{ event: "trigger_event_name" }`, optionally add `segment_id` or `contact_list_id`
 - `steps`: Array of step objects
 
 Offer `dry_run: true` first to preview the flow graph.
@@ -71,8 +71,8 @@ email steps; preserve and fill it by default. Use the compact
 `composition_contract.creative_routes` menu and start a fresh intent with
 `creative_route_id` to select another ready route (that top-level field applies
 one route to the whole sequence; to assign routes per email in a multi-email
-flow, use `email_baseline_selections` entries of `action_name` + `route_id` —
-plus that email's `image_binding_ids` when the route is image-led — as the
+flow, use `email_baseline_selections` entries of `action_name` + `route_id`
+(plus that email's `image_binding_ids` when the route is image-led) as the
 returned contract describes). If that route lacks frozen
 evidence, obtain the exact reported facts. Never fall back silently or invent
 evidence.
@@ -102,7 +102,7 @@ context.
 Flow `approve`, `reject`, and `live` all require the exact current draft
 `revision_id`; `pause`/`resume` omit it, and `resume` never publishes a draft.
 Every `nitro_control_delivery` call requires the `expected_brand_sid` brand
-assertion from the result you reviewed — it never switches brands.
+assertion from the result you reviewed; it never switches brands.
 
 ## Modify Existing Flows
 

@@ -51,11 +51,11 @@ schedule, and legal text.
 ## Step 2: Target Audience
 
 Ask who should receive this:
-- **Contact lists**: Use `audience: { audience_type: "lists", contact_list_ids: [LIST_ID] }` — query lists with `nitro_query` entity "lists"
-- **Segment**: Use `audience: { audience_type: "segment", segment_id: SEGMENT_ID }` — query segments with `nitro_query` entity "segments"
+- **Contact lists**: Use `audience: { audience_type: "lists", contact_list_ids: [LIST_ID] }`, query lists with `nitro_query` entity "lists"
+- **Segment**: Use `audience: { audience_type: "segment", segment_id: SEGMENT_ID }`, query segments with `nitro_query` entity "segments"
 - **All subscribers**: Use `audience: { audience_type: "all_contacts" }` only when the user explicitly wants an all-subscribed-contacts send
 
-To suppress recipients (warmup or exclusions), add `exclude_contact_list_ids` and/or `exclude_segment_ids` inside `audience` — pass `[]` to clear; omitting them in patch mode preserves existing exclusions.
+To suppress recipients (warmup or exclusions), add `exclude_contact_list_ids` and/or `exclude_segment_ids` inside `audience`. Pass `[]` to clear; omitting them in patch mode preserves existing exclusions.
 
 If they need a new segment, use `nitro_define_segment` to create one with filters.
 
@@ -67,7 +67,7 @@ If they need a new segment, use `nitro_define_segment` to create one with filter
 
 ## Step 4: Approve
 
-Run `nitro_control_delivery` with `target_type: "campaign"`, `target_id`, `operation: "approve"`, and `expected_brand_sid` — copy `meta.current_brand.sid` from the review result you just showed the user. This required brand assertion guarantees the approval lands on the brand that was reviewed; it never switches brands.
+Run `nitro_control_delivery` with `target_type: "campaign"`, `target_id`, `operation: "approve"`, and `expected_brand_sid`. Copy `meta.current_brand.sid` from the review result you just showed the user. This required brand assertion guarantees the approval lands on the brand that was reviewed; it never switches brands.
 
 This runs preflight checks:
 - Can send (within limits)
@@ -91,7 +91,7 @@ Ask: send now or schedule for later?
 Every `nitro_control_delivery` call requires the `expected_brand_sid` assertion (`meta.current_brand.sid` from the reviewed result).
 
 For an `all_contacts` audience, both `live` and `schedule` require
-`confirm_send_to_all: true` — an explicit all-subscribed-contacts confirmation.
+`confirm_send_to_all: true`, an explicit all-subscribed-contacts confirmation.
 
 Do not claim a universal optimal send time. Use the recipient context and the
 account's own results; if there is insufficient evidence, label the timing as a

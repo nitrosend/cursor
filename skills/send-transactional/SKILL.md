@@ -10,7 +10,7 @@ description: >
 
 # Send Transactional
 
-Help the user send or set up transactional emails/SMS — immediate, single-recipient messages triggered by application events.
+Help the user send or set up transactional emails/SMS: immediate, single-recipient messages triggered by application events.
 
 ## Understand the Use Case
 
@@ -41,7 +41,7 @@ For on-brand transactional emails:
 2. For a one-off MCP send, call `nitro_send_message` with `template_id`
 3. For application-triggered production sends, wire `POST /v1/my/messages` or `ns.messages.send` using `template_id`
 
-Live sends require an `idempotency_key` — reuse the same stable key on retry to
+Live sends require an `idempotency_key`. Reuse the same stable key on retry to
 prevent duplicate delivery.
 
 ### Merge Variables
@@ -115,9 +115,10 @@ header, and the Node SDK accepts the key as the second argument to
 ## Nitrosend Sender Readiness
 
 Before the first live email, inspect `brand_subdomain` in
-`nitro_get_status`. If preparation is required, use
-`nitro_manage_domains(operation: "prepare_brand_subdomain")`, poll until it
-is ready, then select it explicitly. A first authenticated send may return
+`nitro_get_status`. If preparation is required, call
+`nitro_manage_domains(operation: "prepare_brand_subdomain")` and use the
+returned `apex`, `fqdn` and `selected` values. If `selected` is false, select it
+explicitly with `select_brand_subdomain`. A first authenticated send may return
 `sender_identity_provisioning`; that response is retryable, but no message was
-stored or queued. Retry with the same idempotency key only after readiness and
-selection.
+stored or queued. Retry with the same idempotency key once the sender is ready
+and selected.

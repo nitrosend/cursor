@@ -34,7 +34,7 @@ this skill. Illustrative section patterns include:
 | `text` | `content` (HTML string) |
 | `image` | `src`, `alt`, `href`, `width` |
 | `button` | `text`, `href`, `background_color`, `text_color`, `align`, `border_radius` |
-| `columns` | `columns: [{width, sections: [...]}]` — nested sections |
+| `columns` | `columns: [{width, sections: [...]}]`, nested sections |
 | `hero` | Use the exact props returned by the live schema |
 | `product` | `name`, `price`, `image_url`, `href`, `description` |
 | `products` | Use the exact collection props returned by the live schema |
@@ -73,8 +73,8 @@ before persistence:
 Alternatively, request server-side authoring via the returned metered
 `composition_mode: "generate"` call, which composes, validates, and persists one
 draft. Supplying creative fields without a contract returns the intent contract
-instead of silently creating anything. Only mechanical `section_updates` —
-shallow prop/style tweaks on allowed visual attributes — and clones without
+instead of silently creating anything. Only mechanical `section_updates`
+(shallow prop/style tweaks on allowed visual attributes) and clones without
 creative overrides skip recomposition. `text_patch` copy edits are copy
 changes: they enter the composition contract like any other new copy.
 
@@ -89,12 +89,12 @@ Brand memory can guide selection but cannot prove an image URL or its contents.
 
 **New template**: Use `nitro_manage_template` with `sections` array and `subject` (via the composition contract above).
 
-**Update existing**: Use `nitro_manage_template` with `template_id` and the fields to change — prefer `section_updates` for targeted edits, and pass `if_version` for optimistic concurrency (the call is rejected if the template version has moved).
+**Update existing**: Use `nitro_manage_template` with `template_id` and the fields to change. Prefer `section_updates` for targeted edits, and pass `if_version` for optimistic concurrency (the call is rejected if the template version has moved).
 
 **Clone existing**: Use `nitro_manage_template` with `based_on` (source template ID); creative overrides enter the authoring contract.
 
-Every non-dry-run persistence mutation — create, clone, targeted update, full
-update — requires an `idempotency_key`; contract drafts reuse the stable key
+Every non-dry-run persistence mutation (create, clone, targeted update, full
+update) requires an `idempotency_key`; contract drafts reuse the stable key
 carried by the returned `next_call`.
 
 Always set a descriptive `name` for the template.
@@ -117,21 +117,21 @@ JPEG, or WebP under the live tool's decoded-size limit. Direct upload checksum
 is base64-encoded MD5.
 
 The returned hosted URL (`media_url`/`image_url`) is what goes into the `image`
-section's `src` — never place a `signed_id` directly in sections.
+section's `src`; never place a `signed_id` directly in sections.
 
 ## Preview and Test
 
 After creating/updating:
 1. Use `nitro_review_delivery` with `target_type: "template"` and `target_id` to review content, validate, and check delivery readiness
 2. Ask if they want a test email sent
-3. If yes, use `nitro_send_test_message` with `target_type: "template"`, `target_id`, and an `idempotency_key` (reuse the same key on retry to avoid duplicate test sends) — sends to saved test recipients or specify explicit recipients with `to`
+3. If yes, use `nitro_send_test_message` with `target_type: "template"`, `target_id`, and an `idempotency_key` (reuse the same key on retry to avoid duplicate test sends). It sends to saved test recipients or specify explicit recipients with `to`
 
 ## Merge Tags
 
 Use canonical personalization variables:
 
 - `{{ contact.first_name }}`, `{{ contact.last_name }}`, `{{ contact.email }}`
-- `{{ unsubscribe_url }}` — required in marketing emails
+- `{{ unsubscribe_url }}`, required in marketing emails
 - `{{ event.* }}` for flow-event values allowed by the returned composition
   bindings
 - `{{ data.* }}` only where the returned composition contract permits it

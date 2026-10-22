@@ -43,7 +43,7 @@ If not connected, tell the user:
 If the user needs a different Nitrosend account on an OAuth connection:
 
 1. Run `nitro_get_status` and read the ids from `available_accounts.items[*].id`
-2. Run `nitro_select_account` with the target `account_id` — the switch takes
+2. Run `nitro_select_account` with the target `account_id`, the switch takes
    effect on the next tool call and lands on that account's default brand
 3. Re-run `nitro_get_status` to confirm, then `nitro_select_brand` if a
    non-default brand is needed
@@ -119,7 +119,7 @@ Use only the scheduling operation actually exposed by the host. Suggested cron e
 For any Nitrosend product question not answered by the current context (how a
 feature works, setup or verification steps, API/SDK/CLI usage, integrations),
 call `nitro_search_docs` and treat the returned excerpts as the source of truth.
-If they do not establish an answer, search again or say what is not verified —
+If they do not establish an answer, search again or say what is not verified,
 never invent product behavior.
 
 ## Completion

@@ -76,6 +76,10 @@ grok plugin install nitrosend/cursor@<full-commit-sha> --trust
 
 Start a new Grok session after installing. The first `nitro_*` tool call opens your browser for Nitrosend sign-in (OAuth). Use `/mcps` to inspect the connection.
 
+## Skills
+
+The plugin ships eight skills in `skills/`: `setup`, `compose-email`, `send-campaign`, `build-flow`, `send-transactional`, `import-contacts`, `analytics` and `email-marketing-bible`, a durable email marketing reference. They load with the plugin in Cursor, Grok Build and Grok Bot.
+
 ## Network and permissions
 
 - The plugin calls one endpoint: `https://api.nitrosend.com/mcp`, the hosted Nitrosend MCP server, over HTTPS.
@@ -90,7 +94,7 @@ Start a new Grok session after installing. The first `nitro_*` tool call opens y
 Create section-based email templates with full brand styling, preview, and test sends.
 
 ```
-Compose a welcome email for new SaaS signups — branded, with a single CTA to activate their account
+Compose a welcome email for new SaaS signups, branded, with a single CTA to activate their account
 ```
 
 ### Automation flows
@@ -192,11 +196,11 @@ How are my flows performing this month? Compare against benchmarks.
 
 ## Agents
 
-Connecting from an agent surface — Cursor Chat, Cursor web, or a cloud agent like Grok Bot? Read the Nitrosend agent onboarding guide first: [nitrosend.com/SKILL.md](https://nitrosend.com/SKILL.md). The short version: call `nitro_get_status` before anything else, trust its snapshot over assumptions, and never approve or trigger a live send without explicit human confirmation.
+Connecting from an agent surface (Cursor Chat, Cursor web, or a cloud agent like Grok Bot)? Read the Nitrosend agent onboarding guide first: [nitrosend.com/SKILL.md](https://nitrosend.com/SKILL.md). The short version: call `nitro_get_status` before anything else, trust its snapshot over assumptions, and never approve or trigger a live send without explicit human confirmation.
 
 ## Requirements
 
-- Cursor with MCP support — desktop, web, and cloud agents (including Grok Bot) are supported: the plugin connects to a remote MCP URL over OAuth, so no local process is required
+- Cursor with MCP support. Desktop, web, and cloud agents (including Grok Bot) are supported, because the plugin connects to a remote MCP URL over OAuth, so no local process is required
 - A Nitrosend account ([nitrosend.com](https://nitrosend.com))
 
 This plugin is free. Nitrosend has a free tier; paid plans and usage are a separate, optional subscription to the Nitrosend service.

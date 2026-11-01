@@ -1,6 +1,6 @@
 # Nitrosend for Cursor
 
-AI-native email inside Cursor. Compose campaigns and flows, manage contacts, send transactional messages, and inspect results from your editor through Nitrosend's remote MCP server. Sign in with OAuth; a free plan is available.
+Run your email from Cursor. One prompt to Nitrosend scans your site into a Brand Kit, designs your newsletter on brand, drafts your email flows and sends the test to you. Campaigns, contacts, transactional email, agent inboxes and analytics run from Cursor's agent through Nitrosend's hosted MCP server. Sign in with OAuth: no API key, free to start.
 
 ## Quick Start
 
@@ -56,13 +56,15 @@ If your Cursor build cannot connect to a remote MCP server directly, use the std
 
 </details>
 
-### Verify connection
+### Start with one prompt
 
-Open Cursor Chat and ask:
+Open Cursor's Agent chat and paste this, with your own website:
 
 ```
-Check my Nitrosend account status
+Tell me in plain English what you can do for me. Then build my first campaign: my brand's voice and Brand Kit, images from yourcompany.com, a rich template. Send a test to me only. Don't send anything to my subscribers until I approve it.
 ```
+
+Nitrosend reads your site into a Brand Kit, writes the campaign in your brand and sends the test to your own inbox. To check the connection on its own, ask `Check my Nitrosend account status`.
 
 ## Grok Build
 
@@ -139,60 +141,9 @@ Account-wide and per-campaign insights with trends and industry benchmarks.
 How are my flows performing this month? Compare against benchmarks.
 ```
 
-## MCP Tools (28)
+## MCP tools
 
-### Account and brand
-
-| Tool | Description |
-|------|-------------|
-| `nitro_get_status` | Account health, brand context, and onboarding state |
-| `nitro_select_account` | Switch the OAuth MCP connection to another account |
-| `nitro_select_brand` | Switch the current brand for OAuth MCP sessions |
-| `nitro_set_brand_kit` | Brand Kit identity from a URL or manual fields |
-| `nitro_manage_domains` | Add and verify sending domains |
-| `nitro_configure_account` | Sender defaults and test recipients |
-| `nitro_configure_providers` | BYO sending provider credentials and status (SES, Mailgun, Postmark, Resend, SendGrid) |
-| `nitro_manage_billing` | Plan status and upgrades |
-
-### Content and delivery
-
-| Tool | Description |
-|------|-------------|
-| `nitro_manage_template` | Create, update, or clone email templates |
-| `nitro_compose_campaign` | Create email or SMS campaigns |
-| `nitro_compose_flow` | Build automation flows |
-| `nitro_ingest` | Validate and store an image in the brand library, returning a durable email URL |
-| `nitro_review_delivery` | Review content and delivery readiness |
-| `nitro_control_delivery` | Approve, schedule, pause, or cancel delivery |
-| `nitro_send_test_message` | Send test email or SMS messages |
-| `nitro_send_message` | Immediate single-recipient transactional email or SMS |
-
-### Contacts and segmentation
-
-| Tool | Description |
-|------|-------------|
-| `nitro_manage_audience` | Create contacts, manage lists, tags, and events |
-| `nitro_import_contacts` | Bulk import contact records |
-| `nitro_define_segment` | Build segments with filters and preview counts |
-| `nitro_search_contacts` | Find contacts by email, name, or phone |
-
-### Inbox and outreach
-
-| Tool | Description |
-|------|-------------|
-| `nitro_inbox` | Read the agent queue or mailbox |
-| `nitro_inbox_action` | Reply to, handle, or escalate an inbox item |
-| `nitro_manage_outreach` | Discover named people for outreach, gated by an explicit spend cap |
-
-### Insight and support
-
-| Tool | Description |
-|------|-------------|
-| `nitro_query` | Query campaigns, flows, templates, and segments |
-| `nitro_get_insights` | Analytics with trends and industry benchmarks |
-| `nitro_search_docs` | Search Nitrosend guides and API/MCP/CLI references |
-| `nitro_set_memory` | Persistent AI memory across sessions |
-| `nitro_request_support` | Submit a support request |
+The plugin gives Cursor's agent Nitrosend's MCP tools for account and brand setup, templates, campaigns and flows, delivery review and approval, test and transactional sends, contacts, lists and segments, agent inboxes, analytics, docs search and support. Every tool, with its inputs and outputs, is in the [MCP tools reference](https://docs.nitrosend.com/mcp).
 
 ## Agents
 

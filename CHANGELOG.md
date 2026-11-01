@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0
+
+- Use the current Nitrosend mark, as on nitrosend.com, rendered at 1024x1024 from the vector master (`assets/icon.svg`). 1.2.0 had brought back the 1.1.0 mark.
+- Describe the plugin as nitrosend.com/integrations/cursor does: one prompt scans your site into a Brand Kit, designs your newsletter on brand, drafts your flows and sends you the test.
+- README: start with one prompt to paste into Cursor's agent, and link to the generated [MCP tools reference](https://docs.nitrosend.com/mcp) instead of a hand-kept tool table.
+- Bump the Cursor and Grok Build manifests to 1.3.0.
+
 ## 1.2.0
 
 - Ship eight agent skills (`skills/`): setup, compose-email, send-campaign, build-flow, send-transactional, import-contacts, analytics and an email marketing reference. Cursor, Grok Build and Grok Bot load them with the plugin.

@@ -55,7 +55,8 @@ Use `nitro_import_contacts` with `records` array:
 ### Important Rules
 - **Email contacts**: New contacts are auto-subscribed by default; existing
   contacts keep their current subscription state unless `opt_in` is explicit
-- **Both channels**: Include both `email` and `phone` fields
+- **Phone numbers**: leave phone columns out. A new contact imported with an
+  email is subscribed on every channel, phone included
 - **Source tracking**: Set `source` to track where contacts came from
 
 Always offer `dry_run: true` first to preview.

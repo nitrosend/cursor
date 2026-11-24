@@ -17,7 +17,7 @@ Guide the user through the full campaign lifecycle.
 
 Ask:
 - Campaign name
-- Subject line (email only). It must grip: the reader has to feel invested
+- Subject line. It must grip: the reader has to feel invested
   before they open. Lead with one person or one moment from the email, a
   detail the reader can picture, a real stake or a gap only the email
   closes; on a promotion, say the exact deal plainly and first. A subject

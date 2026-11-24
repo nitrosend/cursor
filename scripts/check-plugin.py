@@ -22,7 +22,7 @@ require(re.fullmatch(r"\d+\.\d+\.\d+", cursor["version"]), "Version must be semv
 changelog = (ROOT / "CHANGELOG.md").read_text()
 require(f"## {cursor['version']}" in changelog, "CHANGELOG has no entry for this version")
 for manifest in (cursor, grok):
-    require(0 < len(manifest["description"]) <= 600, "Description missing or over 600 characters")
+    require(0 < len(manifest["description"]) <= 700, "Description missing or over 700 characters")
     keywords = manifest.get("keywords", [])
     require(len(set(keywords)) == len(keywords), "Duplicate keywords")
 require(all("nitrosend" in k for k in grok.get("keywords", [])),

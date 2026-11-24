@@ -6,7 +6,7 @@
 - Skill names and descriptions are what Cursor's marketplace search matches, so each describes the job in the words people search for (newsletter, abandoned cart, welcome series, migration, deliverability).
 - Remove SMS from skill descriptions, skill instructions and the README: SMS is not available to customers.
 - `nitrosend-setup` describes the Cursor, Grok Bot and Grok Build connection instead of Claude's.
-- Cursor manifest: display name "Nitrosend: AI Email Marketing", a description that names the workflows and integrations, and search keywords. The Grok Build manifest takes the same description and keeps its brand-only keywords, as xAI's catalog asks.
+- Cursor manifest: display name "Nitrosend: AI Email Marketing", a description that names the workflows, shared agent inboxes, the integrations, bring-your-own sending (SendGrid, Amazon SES, Postmark, Resend, Mailgun) and the other agents the same account works in (ChatGPT, Claude, Codex), and search keywords. The Grok Build manifest takes the same description and keeps its brand-only keywords, as xAI's catalog asks.
 - Add `scripts/check-plugin.py`, which validates both manifests and every skill before release.
 - Bump the Cursor and Grok Build manifests to 1.4.0.
 

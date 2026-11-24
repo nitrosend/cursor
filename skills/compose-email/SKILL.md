@@ -1,10 +1,11 @@
 ---
 name: compose-email
 description: >
-  Create or edit email templates with Nitrosend's section-based designer.
-  Guides through layout, content, and brand styling. Supports preview and
-  test sends. Use when: "compose email", "design template", "create email",
-  "email template", "edit template", or "update email design".
+  Create or edit email templates with Nitrosend's section-based email
+  designer: responsive, on-brand email design from the Brand Kit, email
+  copywriting, subject lines and preview text, with preview and test sends.
+  Use when: "compose email", "design template", "create email", "email
+  template", "email design", "edit template", or "update email design".
 ---
 
 # Compose Email
@@ -34,7 +35,7 @@ this skill. Illustrative section patterns include:
 | `text` | `content` (HTML string) |
 | `image` | `src`, `alt`, `href`, `width` |
 | `button` | `text`, `href`, `background_color`, `text_color`, `align`, `border_radius` |
-| `columns` | `columns: [{width, sections: [...]}]`, nested sections |
+| `columns` | `columns: [{width, sections: [...]}]`: nested sections |
 | `hero` | Use the exact props returned by the live schema |
 | `product` | `name`, `price`, `image_url`, `href`, `description` |
 | `products` | Use the exact collection props returned by the live schema |
@@ -89,7 +90,9 @@ Brand memory can guide selection but cannot prove an image URL or its contents.
 
 **New template**: Use `nitro_manage_template` with `sections` array and `subject` (via the composition contract above).
 
-**Update existing**: Use `nitro_manage_template` with `template_id` and the fields to change. Prefer `section_updates` for targeted edits, and pass `if_version` for optimistic concurrency (the call is rejected if the template version has moved).
+**Update existing**: Use `nitro_manage_template` with `template_id` and the fields to change; prefer `section_updates` for targeted edits, and pass `if_version` for optimistic concurrency (the call is rejected if the template version has moved).
+
+**Update a campaign's email**: Use `nitro_compose_campaign` with `campaign_id`, `mode: "patch"` and the same `section_updates`, plus `if_version`. A campaign's email is saved through its campaign, never through `nitro_manage_template`.
 
 **Clone existing**: Use `nitro_manage_template` with `based_on` (source template ID); creative overrides enter the authoring contract.
 
@@ -124,14 +127,14 @@ section's `src`; never place a `signed_id` directly in sections.
 After creating/updating:
 1. Use `nitro_review_delivery` with `target_type: "template"` and `target_id` to review content, validate, and check delivery readiness
 2. Ask if they want a test email sent
-3. If yes, use `nitro_send_test_message` with `target_type: "template"`, `target_id`, and an `idempotency_key` (reuse the same key on retry to avoid duplicate test sends). It sends to saved test recipients or specify explicit recipients with `to`
+3. If yes, use `nitro_send_test_message` with `target_type: "template"`, `target_id`, and an `idempotency_key` (reuse the same key on retry to avoid duplicate test sends); sends to saved test recipients or specify explicit recipients with `to`
 
 ## Merge Tags
 
 Use canonical personalization variables:
 
 - `{{ contact.first_name }}`, `{{ contact.last_name }}`, `{{ contact.email }}`
-- `{{ unsubscribe_url }}`, required in marketing emails
+- `{{ unsubscribe_url }}`: required in marketing emails
 - `{{ event.* }}` for flow-event values allowed by the returned composition
   bindings
 - `{{ data.* }}` only where the returned composition contract permits it

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.4.0
+
+- Ship 21 skills, up from 8: the 20 skills of the Nitrosend Claude plugin (2.3.0) plus `email-marketing-bible`. New: `email-brand-kit`, `welcome-email-series`, `abandoned-cart-emails`, `contacts-and-segments`, `signup-form-builder`, `email-platform-migration`, `mailchimp-migration`, `klaviyo-migration`, `email-integrations`, `shopify-email-marketing`, `shared-email-inbox`, `email-deliverability-check` and `agency-client-email`. `setup` and `analytics` are now `nitrosend-setup` and `nitrosend-analytics`.
+- Skill names and descriptions are what Cursor's marketplace search matches, so each describes the job in the words people search for (newsletter, abandoned cart, welcome series, migration, deliverability).
+- Remove SMS from skill descriptions, skill instructions and the README: SMS is not available to customers.
+- `nitrosend-setup` describes the Cursor, Grok Bot and Grok Build connection instead of Claude's.
+- Cursor manifest: display name "Nitrosend: AI Email Marketing", a description that names the workflows, shared agent inboxes, the integrations, bring-your-own sending (SendGrid, Amazon SES, Postmark, Resend, Mailgun) and the other agents the same account works in (ChatGPT, Claude, Codex), and search keywords. The Grok Build manifest takes the same description and keeps its brand-only keywords, as xAI's catalog asks.
+- Add `scripts/check-plugin.py`, which validates both manifests and every skill before release.
+- Bump the Cursor and Grok Build manifests to 1.4.0.
+
 ## 1.3.0
 
 - Use the Nitrosend icon, as on nitrosend.com and in the app: the mark on its orange plate, as Cursor asks for logos, rendered at 1024x1024 from the vector master (`assets/icon.svg`). 1.2.0 had brought back the 1.1.0 mark.

@@ -1,11 +1,13 @@
 ---
 name: build-flow
 description: >
-  Build email/SMS automation flows with triggers, steps, waits, splits, and
-  webhooks. Covers welcome series, cart abandonment, post-purchase, win-back,
-  browse abandonment, and custom event-driven flows. Use when: "automation
-  flow", "welcome series", "drip campaign", "cart abandonment flow",
-  "win-back flow", "build flow", or "email sequence".
+  Build email automation flows with triggers, steps, waits, splits
+  and webhooks: marketing automation and email automation for welcome
+  series, onboarding emails, abandoned cart and browse abandonment,
+  post-purchase, review requests, win-back, re-engagement, drip and nurture
+  sequences, and custom event-driven flows. Use when: "automation flow",
+  "welcome series", "drip campaign", "cart abandonment flow", "win-back
+  flow", "lifecycle emails", "build flow", or "email sequence".
 ---
 
 # Build Flow
@@ -33,7 +35,6 @@ Ask what kind of flow they need. Common patterns:
 | Step | Required Props | Notes |
 |------|---------------|-------|
 | `email` | `subject` + (`design` or `body`) | Design uses `{sections, theme}` |
-| `sms` | `body` | SMS text content |
 | `wait` | `duration` (seconds) | 3600=1hr, 86400=1day, 604800=1week |
 | `split` | `filters`, `yes` steps, `no` steps | Conditional branching; splits may nest inside `yes`/`no` branches |
 | `emit_event` | `event_name` | Fire event to trigger other flows |
@@ -59,7 +60,7 @@ against account performance rather than asserting universal timings.
 
 Use `nitro_compose_flow` with:
 - `name`: Descriptive flow name
-- `trigger`: `{ event: "trigger_event_name" }`, optionally add `segment_id` or `contact_list_id`
+- `trigger`: `{ event: "trigger_event_name" }`; optionally add `segment_id` or `contact_list_id`
 - `steps`: Array of step objects
 
 Offer `dry_run: true` first to preview the flow graph.
@@ -83,8 +84,7 @@ constraint, and idempotency fields. Optionally validate, then persist with
 `composition_mode: "draft"`; full section authoring is an intentional escape
 hatch. The returned metered `optional_server_authoring_call`
 (`composition_mode: "generate"`) may instead author, validate, and persist one
-draft. SMS-only flows and rename-only patches do not need email authoring
-context.
+draft. Rename-only patches do not need email authoring context.
 
 ## Review and Approve
 

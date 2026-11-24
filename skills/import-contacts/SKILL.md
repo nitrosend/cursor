@@ -1,15 +1,21 @@
 ---
 name: import-contacts
 description: >
-  Import contacts into Nitrosend from inline records or CSV. Handles email
-  opt-in, SMS TCPA compliance, list assignment, and tagging. Use when:
-  "import contacts", "add subscribers", "upload contacts", "add to list",
-  "bulk add contacts", or "import CSV".
+  Import contacts into Nitrosend from inline records or CSV, including lists
+  exported from Klaviyo, MailerLite, Brevo, Kit (ConvertKit), beehiiv or
+  Substack. Handles email opt-in, consent, list assignment and
+  tagging for your mailing list and subscribers. Use when: "import
+  contacts", "add subscribers", "upload contacts", "add to list", "bulk add
+  contacts", "email list", or "import CSV".
 ---
 
 # Import Contacts
 
 Help the user import contacts into Nitrosend.
+
+If the contacts are moving from another email tool, follow
+`email-platform-migration` (or `klaviyo-migration`, `mailchimp-migration`)
+first: the old tool's opt-outs go in before any contact is imported.
 
 ## Understand the Source
 
@@ -49,8 +55,8 @@ Use `nitro_import_contacts` with `records` array:
 ### Important Rules
 - **Email contacts**: New contacts are auto-subscribed by default; existing
   contacts keep their current subscription state unless `opt_in` is explicit
-- **SMS contacts**: Must explicitly set `opt_in: true` (TCPA compliance)
-- **Both channels**: Include both `email` and `phone` fields
+- **Phone numbers**: leave phone columns out. A new contact imported with an
+  email is subscribed on every channel, phone included
 - **Source tracking**: Set `source` to track where contacts came from
 
 Always offer `dry_run: true` first to preview.
@@ -73,5 +79,4 @@ Use `nitro_manage_audience` with `operation: "bulk_tag"`:
 - Only import contacts who have given consent to receive emails
 - Never import purchased or scraped lists
 - Include a source identifier for audit trails
-- SMS contacts require explicit written consent (TCPA)
 - GDPR: Ensure lawful basis for EU contacts

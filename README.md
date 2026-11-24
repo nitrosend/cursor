@@ -80,7 +80,18 @@ Start a new Grok session after installing. The first `nitro_*` tool call opens y
 
 ## Skills
 
-The plugin ships eight skills in `skills/`: `setup`, `compose-email`, `send-campaign`, `build-flow`, `send-transactional`, `import-contacts`, `analytics` and `email-marketing-bible`, a durable email marketing reference. They load with the plugin in Cursor, Grok Build and Grok Bot.
+The plugin ships 21 skills in `skills/`. They load with the plugin in Cursor, Grok Build and Grok Bot.
+
+- **Get started:** `nitrosend-setup`, `email-brand-kit`
+- **Newsletters and campaigns:** `compose-email`, `send-campaign`
+- **Automation flows:** `build-flow`, `welcome-email-series`, `abandoned-cart-emails`
+- **Transactional email:** `send-transactional`
+- **Contacts and signups:** `import-contacts`, `contacts-and-segments`, `signup-form-builder`
+- **Migrations:** `email-platform-migration`, `mailchimp-migration`, `klaviyo-migration`
+- **Integrations and ecommerce:** `email-integrations`, `shopify-email-marketing`
+- **Inbox, deliverability and analytics:** `shared-email-inbox`, `email-deliverability-check`, `nitrosend-analytics`
+- **Agencies:** `agency-client-email`
+- **Reference:** `email-marketing-bible`, durable email marketing principles
 
 ## Network and permissions
 
@@ -100,14 +111,14 @@ Compose a welcome email for new SaaS signups, branded, with a single CTA to acti
 ```
 
 ### Automation flows
-Build trigger-based sequences with waits, splits, webhooks, and SMS steps.
+Build trigger-based sequences with waits, splits and webhooks.
 
 ```
 Build a 3-email cart abandonment flow: 1 hour, 24 hours, 72 hours. Include a 10% discount in the final email.
 ```
 
 ### Campaigns
-Create, target, preview, approve, and send or schedule email and SMS campaigns.
+Create, target, preview, approve, and send or schedule email campaigns.
 
 ```
 Send our March newsletter to the "Active subscribers" segment, scheduled for Tuesday 10am

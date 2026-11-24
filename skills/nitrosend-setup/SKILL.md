@@ -1,12 +1,13 @@
 ---
-name: setup
+name: nitrosend-setup
 description: >
-  Guided Nitrosend onboarding. Walks through remote MCP connection, Brand Kit
-  identity setup, brand-subdomain preparation or customer-domain verification,
-  and sender defaults. Also
-  offers to configure proactive analytics (daily/weekly/monthly reports).
-  Use when: "set up nitrosend", "configure email", "onboard", "get started
-  with nitrosend", or when nitro_get_status shows incomplete onboarding.
+  Guided Nitrosend email marketing setup. Walks through remote MCP
+  connection, the Brand Kit from the website, brand-subdomain preparation or
+  customer sending-domain verification (SPF, DKIM, DMARC), and sender
+  defaults. Also offers to configure proactive analytics (daily, weekly or
+  monthly reports). Use when: "set up nitrosend", "configure email",
+  "onboard", "get started with nitrosend", or when nitro_get_status shows
+  incomplete onboarding.
 ---
 
 # Nitrosend Setup
@@ -15,10 +16,15 @@ Guide the user through Nitrosend onboarding. Check what's already done and skip 
 
 ## Connection Surface
 
-This plugin bundles the remote MCP server at `https://api.nitrosend.com/mcp`.
-In Cursor, Grok Build and Grok Bot, connect through that server and its
-browser sign-in. Do not recommend a terminal CLI or API-key setup for
-standard onboarding.
+In Cursor, Grok Bot or Grok Build with this Nitrosend plugin installed, use the
+bundled `nitrosend` MCP server at `https://api.nitrosend.com/mcp`. Sign-in is
+browser OAuth. Do not recommend a terminal CLI or API-key setup for standard
+onboarding.
+
+In any other agent (ChatGPT, Claude, Codex, Gemini CLI, VS Code and others),
+connect the same remote MCP server through that client's MCP settings with
+browser OAuth. The per-client guides are at
+https://docs.nitrosend.com/integrations/overview.
 
 Use the CLI only when the user explicitly wants a terminal, CI, or headless
 agent-runner workflow. If a command sandbox cannot reach `api.nitrosend.com`,
@@ -33,8 +39,11 @@ Run `nitro_get_status` to see what's already configured. Report the current stat
 If the MCP server is connected, OAuth is already working. Confirm this.
 
 If not connected, tell the user:
-1. Open the MCP or plugins settings in their client
-2. Select the bundled `nitrosend` server
+1. Open the MCP or connectors settings in their client
+2. Select the bundled `nitrosend` server if the Nitrosend plugin is installed
+   (Cursor, Grok Bot or Grok Build). Otherwise add `https://api.nitrosend.com/mcp`
+   using the guide for that client at
+   https://docs.nitrosend.com/integrations/overview
 3. Complete the browser sign-in and approval flow
 4. Verify the connection with `nitro_get_status`
 
@@ -43,7 +52,7 @@ If not connected, tell the user:
 If the user needs a different Nitrosend account on an OAuth connection:
 
 1. Run `nitro_get_status` and read the ids from `available_accounts.items[*].id`
-2. Run `nitro_select_account` with the target `account_id`, the switch takes
+2. Run `nitro_select_account` with the target `account_id`; the switch takes
    effect on the next tool call and lands on that account's default brand
 3. Re-run `nitro_get_status` to confirm, then `nitro_select_brand` if a
    non-default brand is needed
@@ -82,18 +91,20 @@ Read `brand_subdomain` from `nitro_get_status`. If there is no ready selected
 sender, offer these two explicit paths:
 
 1. Recommended quick start: call `nitro_manage_domains` with
-   `operation: "prepare_brand_subdomain"`. It reserves the brand's protected
-   `<name>.nitrosend.net` sender and creates its local sender identity under
-   Nitrosend's verified shared root. There is no per-brand DNS or DKIM work.
-   Use the returned `apex`, `fqdn` and `selected` values. It sends no email.
-2. If the response is not yet ready, poll `nitro_get_status` until
-   `brand_subdomain.ready` is true. If `selected` is false, call
+   `operation: "prepare_brand_subdomain"`. This reserves the brand-matched
+   `<name>.nitrosend.net` address and creates its local sending identity under
+   Nitrosend's verified root. No per-brand DNS or DKIM work is needed. It
+   sends no email and preserves an existing sender selection.
+2. If needed, poll `nitro_get_status` until `brand_subdomain.ready` is true.
+   Only if it is not selected, call
    `nitro_manage_domains` with `operation: "select_brand_subdomain"` and the
    user's chosen `local_part` (default `hello`). Never infer selection from
    readiness.
 3. Customer-domain alternative: use `nitro_manage_domains` with
    `operation: "add"`, show the returned DNS records, wait for the user to add
-   them, then use `operation: "verify"`.
+   them, then use `operation: "verify"`. It names any record still missing and
+   is safe to repeat; once the records are in place, Nitrosend verifies the
+   domain on its own, and `verify` shows its progress.
 
 Do not claim that account creation or a draft consumes sending infrastructure.
 Do not describe a shared sender or an allowance for unverified sending.
@@ -129,12 +140,12 @@ Use only the scheduling operation actually exposed by the host. Suggested cron e
 For any Nitrosend product question not answered by the current context (how a
 feature works, setup or verification steps, API/SDK/CLI usage, integrations),
 call `nitro_search_docs` and treat the returned excerpts as the source of truth.
-If they do not establish an answer, search again or say what is not verified,
+If they do not establish an answer, search again or say what is not verified;
 never invent product behavior.
 
 ## Completion
 
-Summarize what was configured and suggest next steps:
-- "Try `/nitrosend:compose-email` to create your first email"
-- "Use `/nitrosend:import-contacts` to add your audience"
-- "Build an automation with `/nitrosend:build-flow`"
+Summarize what was configured and suggest next steps by skill name:
+- Create a first email with `compose-email`
+- Add an audience with `import-contacts`
+- Build an automation with `build-flow`
